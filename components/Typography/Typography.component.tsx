@@ -1,24 +1,31 @@
+// libs
 import { ElementType } from "react";
-import { TypographyProps } from "./Typography.types";
-import styles from "./Typography.module.css";
-
 import cn from "classnames";
 
-const defaultElement = "div";
+// types
+import { TypographyProps, VariantTypes } from "./Typography.types";
 
-const fonts = {
-  Headline1: font.className,
-  Headline2: font.className,
-  Text1: font.className,
-  Text2:font.className,
-  Text3: font.className,
-  Text4: font.className,
+// styles
+import styles from "./Typography.module.css";
+
+//fonts
+import { consolas, helvetica } from "@/fonts";
+
+const fontFamily: Record<VariantTypes, string> = {
+  headline1: consolas.style.fontFamily,
+  headline2: helvetica.style.fontFamily,
+  text1: helvetica.style.fontFamily,
+  text2: helvetica.style.fontFamily,
+  text3: helvetica.style.fontFamily,
+  text4: helvetica.style.fontFamily,
 };
+
+const defaultElement = "div";
 
 export function Typography<E extends ElementType = typeof defaultElement>({
   children,
   as,
-  variant,
+  variant = "headline1",
   className,
   ...otherProps
 }: TypographyProps<E>) {
@@ -26,7 +33,7 @@ export function Typography<E extends ElementType = typeof defaultElement>({
 
   return (
     <TagName
-      className={cn(fonts[variant], styles[variant], styles.Shared, className)}
+      className={cn(styles[variant], fontFamily[variant], styles.Shared, className)}
       {...otherProps}
     >
       {children}
