@@ -1,4 +1,5 @@
-import { Typography } from "@/components";
+import { Typography, Button } from "@/components";
+
 export default function Home() {
   return (
     <main>
@@ -8,6 +9,9 @@ export default function Home() {
       <Typography variant="text2">Text 2</Typography>
       <Typography variant="text3">Text 3</Typography>
       <Typography variant="text4">Text 4</Typography>
+
+      <Button variant="primary" as="button">Составить вариант</Button>
+      <Button variant="primary" as="a" >Составить вариант</Button>
     </main>
   );
 }

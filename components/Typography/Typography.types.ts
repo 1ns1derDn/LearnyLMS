@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ReactNode } from "react";
+import { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
 
 export type VariantTypes = "headline1" | "headline2" | "text1" | "text2" | "text3" | "text4";
 
