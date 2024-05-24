@@ -24,7 +24,7 @@ export function Button<E extends ElementType = typeof defaultElement>({
   const TagName = as || defaultElement;
 
   return (
-    <TagName className={cn(styles[variant], helvetica.style.fontStyle, className)} {...otherProps}>
+    <TagName className={cn(styles[variant], styles.share, helvetica.style.fontStyle, className)} {...otherProps}>
       {Icon}
       <span>{children}</span>
     </TagName>

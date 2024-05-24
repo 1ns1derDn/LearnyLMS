@@ -1,6 +1,9 @@
-import { Typography, Button } from "@/components";
+
+import { Typography, Button, Checkbox } from "@/components";
+
 
 export default function Home() {
+
   return (
     <main>
       <Typography variant="headline1">Headline 1</Typography>
@@ -10,8 +13,13 @@ export default function Home() {
       <Typography variant="text3">Text 3</Typography>
       <Typography variant="text4">Text 4</Typography>
 
-      <Button variant="primary" as="button">Составить вариант</Button>
-      <Button variant="primary" as="a" >Составить вариант</Button>
+      <Button variant="primary" >Составить вариант</Button>
+      <Button variant="secondary"  Icon={<>X</>} style={{marginBottom: '25px'}}>Удалить все</Button>
+
+      <Checkbox></Checkbox>
+      <Checkbox checked></Checkbox>
+      <Checkbox disabled></Checkbox>
+      <Checkbox checked disabled></Checkbox>
     </main>
   );
 }
