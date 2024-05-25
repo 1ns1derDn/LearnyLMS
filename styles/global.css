@@ -9,3 +9,10 @@ body {
 *::after {
   box-sizing: inherit;
 }
+
+body {
+  background-image: url("../public/backgrounds/background-main.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
