@@ -17,8 +17,6 @@ import { usePathname } from "next/navigation";
 export function Nav({ className, menu, ...otherProps }: NavProps) {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <nav className={cn([className, styles.nav])} {...otherProps}>
       <ul className={styles.list}>

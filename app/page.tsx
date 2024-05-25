@@ -1,4 +1,4 @@
-import { Typography, Button, Checkbox, Logo, Divided } from "@/components";
+import { Typography, Button, Checkbox, Logo, Divided, Paper } from "@/components";
 import { Nav } from "../modules";
 export default function Home() {
   return (
@@ -52,6 +52,12 @@ export default function Home() {
           },
         ]}
       />
+
+      <Paper>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, quam magni debitis,
+        maiores praesentium fugiat incidunt dolor et suscipit ratione neque reprehenderit soluta
+        inventore nobis! Quaerat ipsum blanditiis labore earum?
+      </Paper>
     </main>
   );
 }
