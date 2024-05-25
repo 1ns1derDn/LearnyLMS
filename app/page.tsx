@@ -1,4 +1,4 @@
-import { Typography, Button, Checkbox, Logo } from "@/components";
+import { Typography, Button, Checkbox, Logo, Divided } from "@/components";
 
 export default function Home() {
   return (
@@ -21,6 +21,8 @@ export default function Home() {
       <Checkbox checked disabled></Checkbox>
 
       <Logo />
+
+      <Divided />
     </main>
   );
 }
