@@ -1,3 +1,3 @@
 import { InputHTMLAttributes } from "react";
 
-export interface LabelProps extends InputHTMLAttributes<HTMLInputElement>{}
+export interface LabelProps extends InputHTMLAttributes<HTMLInputElement> {}
