@@ -12,12 +12,12 @@ import styles from "./Typography.module.css";
 import { consolas, helvetica } from "@/fonts";
 
 const fontFamily: Record<VariantTypes, string> = {
-  headline1: consolas.style.fontFamily,
-  headline2: helvetica.style.fontFamily,
-  text1: helvetica.style.fontFamily,
-  text2: helvetica.style.fontFamily,
-  text3: helvetica.style.fontFamily,
-  text4: helvetica.style.fontFamily,
+  headline1: consolas.className,
+  headline2: helvetica.className,
+  text1: helvetica.className,
+  text2: helvetica.className,
+  text3: helvetica.className,
+  text4: helvetica.className,
 };
 
 const defaultElement = "div";

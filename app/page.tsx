@@ -1,5 +1,5 @@
 import { Typography, Button, Checkbox, Logo, Divided } from "@/components";
-
+import { Nav } from "../modules";
 export default function Home() {
   return (
     <main>
@@ -15,14 +15,43 @@ export default function Home() {
         Удалить все
       </Button>
 
-      <Checkbox></Checkbox>
+      {/* <Checkbox></Checkbox>
       <Checkbox checked></Checkbox>
       <Checkbox disabled></Checkbox>
-      <Checkbox checked disabled></Checkbox>
+      <Checkbox checked disabled></Checkbox> */}
 
       <Logo />
 
       <Divided />
+
+      <Nav
+        menu={[
+          {
+            href: "/",
+            label: "Тематический кодификатор",
+          },
+          {
+            href: "text",
+            label: "Генератор задач",
+          },
+          {
+            href: "text",
+            label: "label",
+          },
+          {
+            href: "text",
+            label: "label",
+          },
+          {
+            href: "text",
+            label: "label",
+          },
+          {
+            href: "text",
+            label: "label",
+          },
+        ]}
+      />
     </main>
   );
 }
