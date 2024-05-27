@@ -3,12 +3,15 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding: 57px 0 25px 0
+  padding: 57px 0 25px 0px;
 }
 
 .background {
   display: flex;
-  background-color: #dededeed;
+  background: #dededeed;
+
+  gap: 25px;
+
   padding: 20px 28px 35px 27px;
   min-height: calc(100vh - 57px - 25px);
   width: 100%;
@@ -19,5 +22,8 @@
 }
 
 .main {
-  flex-basis: 1523px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex-basis: 100%;
 }

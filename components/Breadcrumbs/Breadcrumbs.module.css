@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+  list-style: none;
+
+  background: #a9a9a9bf;
+
+  border-radius: 20px;
+  height: 62px;
+
+  margin: 0;
+
+  padding: 19px 37px;
+}
+
+.item {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 23px;
+  font-family: sans-serif;
+}
+
+.item:first-child::before {
+  display: none;
+}
+
+.item::before {
+  content: "/";
+  content: "/";
+  display: inline-flex;
+  margin: 0 5px;
+}

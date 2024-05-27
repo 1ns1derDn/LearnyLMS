@@ -18,6 +18,16 @@ export const consolas = localFont({
 export const helvetica = localFont({
   src: [
     {
+      path: "../public/fonts/helvetica_light.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/helvetica_light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
       path: "../public/fonts/helvetica_regular.woff",
       weight: "400",
       style: "normal",
