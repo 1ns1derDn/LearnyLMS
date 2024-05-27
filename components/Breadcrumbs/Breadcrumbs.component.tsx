@@ -1,5 +1,4 @@
 // libs
-import { ElementType } from "react";
 import cn from "classnames";
 
 // types

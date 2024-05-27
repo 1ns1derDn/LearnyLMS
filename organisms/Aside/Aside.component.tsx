@@ -14,7 +14,7 @@ import { Nav } from "@/modules";
 
 export function Aside({ className, ...otherProps }: AsideProps) {
   return (
-    <Paper className={cn([className, styles.aside])} {...otherProps}>
+    <Paper className={cn([styles.aside, className])} {...otherProps}>
       <Logo className={styles.logo} />
       <Divided />
       <div className={styles.wrapper}>

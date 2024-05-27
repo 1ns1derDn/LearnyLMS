@@ -27,3 +27,7 @@
   gap: 22px;
   flex-basis: 100%;
 }
+
+.content {
+  height: 100%;
+}

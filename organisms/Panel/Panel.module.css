@@ -1,0 +1,23 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #fff;
+
+
+  max-width: 393px;
+  width: 100%;
+
+  padding: 38px 19px 24px;
+}
+
+.create {
+  margin-bottom: 50px;
+}
+
+.delete {
+  margin-top: auto;
+  align-self: flex-end;
+}
