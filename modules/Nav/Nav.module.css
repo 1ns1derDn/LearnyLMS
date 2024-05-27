@@ -9,7 +9,7 @@
 }
 
 .item {
-  margin-bottom: 4px;
+  margin-bottom: 9px;
 }
 
 .item:last-child {
@@ -18,12 +18,12 @@
 
 .link {
   display: block;
-  padding: 9px 10px;
+  padding: 4px 4px 4px 7px;
   text-decoration: none;
   color: #343434;
   border-radius: 10px 0px 0px 10px;
   background-color: transparent;
-  min-height: 36px;
+  height: 29px;
 }
 
 .link.active {

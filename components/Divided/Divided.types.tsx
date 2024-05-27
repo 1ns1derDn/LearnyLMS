@@ -1,3 +1,7 @@
 import { HTMLAttributes } from "react";
 
-export interface DividedProps extends HTMLAttributes<HTMLElement> {}
+type DividedVariant = "primary" | "secondary";
+
+export interface DividedProps extends HTMLAttributes<HTMLElement> {
+  variant?: DividedVariant;
+}

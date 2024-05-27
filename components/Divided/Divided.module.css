@@ -1,6 +1,15 @@
 .divided {
   display: block;
-  height: 5px;
-  width: 100%;
+  max-width: 100%;
   background-color: #dedede;
+}
+
+.primary {
+  height: 5px;
+  background-color: #dedede;
+}
+
+.secondary {
+  background-color: #a9a9a9;
+  height: 2px;
 }

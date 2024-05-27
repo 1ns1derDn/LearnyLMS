@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 57px 0 25px 0
+}
+
+.background {
+  display: flex;
+  background-color: #dededeed;
+  padding: 20px 28px 35px 27px;
+  min-height: calc(100vh - 57px - 25px);
+  width: 100%;
+}
+
+.aside {
+  flex-basis: 314px;
+}
+
+.main {
+  flex-basis: 1523px;
+}
