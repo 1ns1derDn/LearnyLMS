@@ -1,3 +1,4 @@
+"use client";
 // libs
 import React from "react";
 import cn from "classnames";
@@ -14,14 +15,29 @@ import { Button, Typography } from "@/components";
 //svg
 import DeleteIcon from "@/public/icons/delete.svg";
 
-export function Panel({ className, children, ...otherProps }: PanelProps) {
+
+
+export function Panel({
+  className,
+  children,
+  counter,
+  onReset,
+  onSubmit,
+  ...otherProps
+}: PanelProps) {
   return (
     <div className={cn([className, styles.panel])} {...otherProps}>
-      <Button className={styles.create} variant="primary">
+      <Button className={styles.create} variant="primary" onClick={onSubmit}>
         Составить вариант
       </Button>
-      <Typography variant="text2">Включить в вариант 10 заданий </Typography>
-      <Button className={styles.delete} Icon={<DeleteIcon />} variant="secondary">
+      <Typography variant="text2">Включить в вариант {counter} заданий </Typography>
+      <Button
+        onClick={onReset}
+        type="button"
+        className={styles.delete}
+        Icon={<DeleteIcon />}
+        variant="secondary"
+      >
         Удалить все
       </Button>
     </div>

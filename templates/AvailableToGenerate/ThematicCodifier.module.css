@@ -110,3 +110,8 @@
 .pl {
   padding-left: 33px;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}

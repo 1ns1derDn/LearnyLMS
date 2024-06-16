@@ -5,3 +5,4 @@ export * from "./Logo";
 export * from "./Divided";
 export * from "./Paper";
 export * from "./Breadcrumbs";
+export * from "./InputNumber";

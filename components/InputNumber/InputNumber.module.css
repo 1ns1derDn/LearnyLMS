@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b6b6b6;
+  border-radius: 4.38px;
+  position: relative;
+  height: 19.25px;
+  width: 40.25px;
+}
+
+.wrapper::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+
+  position: absolute;
+  top: 0px;
+  right: 14px;
+  background-color: #282a36;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  padding: 0px 14px 0 8px;
+  outline: none;
+  color: #282a36;
+}
+
+.increment,
+.discrement {
+  position: absolute;
+
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  width: 11px;
+  height: 7px;
+
+  display: flex;
+  justify-content: center;
+  align-items: centerq;
+}
+
+.increment {
+  top: 2px;
+  right: 2px;
+}
+.discrement {
+  bottom: 2px;
+  right: 2px;
+}

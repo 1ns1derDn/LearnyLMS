@@ -1,17 +1,95 @@
+"use client";
 // libs
-import React from "react";
+import React, { useState } from "react";
 import cn from "classnames";
-import Image from "next/image";
 
 //types
-import { ThematicCodifierProps } from "./ThematicCodifier.types";
+import { IFromThematicCodifierData, ThematicCodifierProps } from "./ThematicCodifier.types";
 
 //styles
 import styles from "./ThematicCodifier.module.css";
 //organisms
 import { Panel } from "@/organisms";
-import { Checkbox, Divided, Paper, Typography } from "@/components";
-export function ThematicCodifier({ className, children, ...otherProps }: ThematicCodifierProps) {
+import { Divided, Paper, Typography } from "@/components";
+import { Row } from "./Row.component";
+import { http } from "@/core/axios";
+import { useAnswer } from "@/context/userAnswer.context";
+import { useRouter } from "next/navigation";
+
+export function ThematicCodifier({
+  className,
+  children,
+  data,
+  ...otherProps
+}: ThematicCodifierProps) {
+  const { setAnswer } = useAnswer();
+  const { push } = useRouter();
+
+  const [formData, setFormData] = useState<IFromThematicCodifierData[]>(
+    data.map((item) => ({ section_id: item.section_id, amount: 0, included_topics: [] }))
+  );
+
+  const onReset = () => {
+    setFormData(
+      data.map((item) => ({ section_id: item.section_id, amount: 0, included_topics: [] }))
+    );
+  };
+
+  const sumAmoun = (array: IFromThematicCodifierData[]) => {
+    return array.reduce((sum, elem) => {
+      return (sum += elem.amount);
+    }, 0);
+  };
+
+  const changeAmount = (section_id: number, amount: number) => {
+    setFormData((prev) =>
+      prev.map((item) => {
+        if (item.section_id === section_id) {
+          return {
+            ...item,
+            amount,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
+  const changeTopics = (section_id: number, id: number) => {
+    setFormData((prev) =>
+      prev.map((item) => {
+        if (item.section_id === section_id) {
+          let included_topics = [...item.included_topics];
+
+          if (included_topics.includes(id)) {
+            included_topics = included_topics.filter((item) => item !== id);
+            return {
+              ...item,
+              included_topics,
+            };
+          } else {
+            included_topics.push(id);
+            return {
+              ...item,
+              included_topics,
+            };
+          }
+        }
+        return item;
+      })
+    );
+  };
+
+  const onSubmit = async () => {
+    try {
+      const response = await http.post("/api/v1/codifier/create-test/", formData);
+      setAnswer({ tasks: response.data?.tasks, test_id: response.data?.test_id } as any);
+      push("/generated-answers");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={cn([className, styles.thematicCodifier])} {...otherProps}>
       <Paper className={styles.tables}>
@@ -34,36 +112,19 @@ export function ThematicCodifier({ className, children, ...otherProps }: Themati
         </div>
         <Divided />
         <div className={styles.body}>
-          <div className={styles.row}>
-            <div className={styles.col}>
-              <Image src="/icons/arrrow.png" width={25} height={25} alt="arrow" />
-              <div>
-                <Typography className={cn(styles.color, styles.topic)} variant="text3">
-                  Тема 1. Количественные параметры информационных объектов
-                </Typography>
-                <Typography className={cn(styles.color, styles.subtopic)} variant="text3">
-                  <span>
-                    Подтема 1. Кодировка, в которой каждый символ кодируется 8/16/32 битами
-                  </span>
-                  <Checkbox className={styles.checkbox} />
-                </Typography>
-              </div>
-            </div>
-            <div className={styles.col}>
-              <Typography className={styles.topicCount} variant="text3">
-                8 шт.
-              </Typography>
-              <Typography className={styles.subtopicCount} variant="text3">
-                8 шт.
-              </Typography>
-            </div>
-            <div className={styles.col}>
-              <input type="number" />
-            </div>
-          </div>
+          {data.map((row, index) => (
+            <Row
+              changeTopics={changeTopics}
+              changeAmount={changeAmount}
+              {...formData[index]}
+              key={index}
+              {...row}
+              index={index}
+            />
+          ))}
         </div>
       </Paper>
-      <Panel />
+      <Panel onSubmit={onSubmit} onReset={onReset} counter={sumAmoun(formData)} />
     </div>
   );
 }
