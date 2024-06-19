@@ -1,9 +1,10 @@
 import { HTMLAttributes } from "react";
 
 export interface RowTypes {
-  keyCheck: string;
   display_name: string;
-  number: number;
+  changeAmount: (key: string, amount: number) => void;
+  amount: number;
+  task_type: string;
   topics: [
     {
       key: string;
@@ -11,6 +12,12 @@ export interface RowTypes {
       available_for_generation: boolean;
     }
   ];
+  index: number;
+}
+
+export interface IFromAvailableToGenerateData {
+  task_type: string;
+  amount: number;
 }
 
 export interface TAvailableToGenerateProps extends HTMLAttributes<HTMLElement> {

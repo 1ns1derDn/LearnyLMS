@@ -1,14 +1,21 @@
 "use client";
 
 import { RowTypes } from "./AvailableToGenerate.types";
-import styles from "./ThematicCodifier.module.css";
+import styles from "./AvailableToGenerate.module.css";
 import { Typography, Checkbox, InputNumber } from "@/components";
 import Image from "next/image";
 import cn from "classnames";
 import { useState } from "react";
 
-export const Row = ({ display_name, topics, number }: RowTypes) => {
+export const Row = ({
+  display_name,
+  topics,
+  amount,
+  changeAmount,
+  index,
+}: RowTypes) => {
   const [visible, setVisible] = useState<boolean>(false);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.row}>
@@ -23,16 +30,14 @@ export const Row = ({ display_name, topics, number }: RowTypes) => {
           />
           <div>
             <Typography className={cn(styles.color, styles.topic)} variant="text3">
-              {`Тема ${number + 1}. ${display_name}`}
+              {`Тема ${index + 1}. ${display_name}`}
             </Typography>
           </div>
         </div>
         <div className={styles.col}>
           <Typography className={styles.topicCount} variant="text3"></Typography>
         </div>
-        <div className={styles.col}>
-          <InputNumber />
-        </div>
+        <div className={styles.col}></div>
       </div>
       <div>
         {visible && (
@@ -41,20 +46,17 @@ export const Row = ({ display_name, topics, number }: RowTypes) => {
               <Typography className={cn(styles.color, styles.subtopic)} variant="text3" key={index}>
                 <div
                   className={cn(styles.col, styles.pl, {
-                    [styles.disabled]: available_for_generation,
+                    [styles.disabled]: !available_for_generation,
                   })}
                 >
-                  <span>{`Подтема ${index + 1}. ${display_name}`}</span>{" "}
-                  <Checkbox
-                    name={key}
-                    className={styles.checkbox}
-                    disabled={available_for_generation}
-                  />
+                  <span>{`Подтема ${index + 1}. ${display_name}`}</span>
                 </div>
-                <Typography
-                  className={cn(styles.col, styles.subtopicCount)}
-                  variant="text3"
-                ></Typography>
+                <div className={styles.col} />
+                <Typography className={cn(styles.col, styles.subtopicCount)} variant="text3">
+                  {available_for_generation && (
+                    <InputNumber getAmount={(val) => changeAmount(key, val)} value={amount} />
+                  )}
+                </Typography>
               </Typography>
             ))}
           </>

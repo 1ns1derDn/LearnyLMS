@@ -4,4 +4,5 @@ export interface PanelProps extends HTMLAttributes<HTMLElement> {
   counter: number;
   onReset: () => void;
   onSubmit: () => void;
+  isDisabled?: boolean;
 }

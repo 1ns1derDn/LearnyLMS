@@ -29,6 +29,12 @@ export function ThematicCodifier({
     data.map((item) => ({ section_id: item.section_id, amount: 0, included_topics: [] }))
   );
 
+  const checkDisabled = () => {
+    return !formData.some(
+      ({ amount, included_topics }) => amount > 0 && included_topics.length > 0
+    );
+  };
+
   const onReset = () => {
     setFormData(
       data.map((item) => ({ section_id: item.section_id, amount: 0, included_topics: [] }))
@@ -124,7 +130,12 @@ export function ThematicCodifier({
           ))}
         </div>
       </Paper>
-      <Panel onSubmit={onSubmit} onReset={onReset} counter={sumAmoun(formData)} />
+      <Panel
+        onSubmit={onSubmit}
+        onReset={onReset}
+        counter={sumAmoun(formData)}
+        isDisabled={checkDisabled()}
+      />
     </div>
   );
 }

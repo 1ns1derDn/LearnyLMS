@@ -25,7 +25,6 @@
 
 .item::before {
   content: "/";
-  content: "/";
   display: inline-flex;
   margin: 0 5px;
 }

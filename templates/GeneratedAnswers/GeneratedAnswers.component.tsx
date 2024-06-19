@@ -29,7 +29,7 @@ export function GeneratedAnswers({
   const controller = useRef<DialogRef>(null);
   const router = useRouter();
 
-  const downloadFile = (url: string) => {
+  const downloadFile = (url: string, name: string) => {
     http(`${url}${test_id}/`, {
       method: "GET",
       headers: {
@@ -42,7 +42,7 @@ export function GeneratedAnswers({
         const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", `FileName.pdf`);
+        link.setAttribute("download", `${name}.pdf`);
         document.body.appendChild(link);
         link.click();
         link.parentNode?.removeChild(link);
@@ -83,14 +83,14 @@ export function GeneratedAnswers({
           <div>
             <button
               className={styles.donwloadBtn}
-              onClick={() => downloadFile("/api/v1/export/answers/")}
+              onClick={() => downloadFile("/api/v1/export/answers/", "Вариант В PDF")}
             >
               <SVGIcon />
               <span>Вариант В PDF</span>
             </button>
             <button
               className={styles.donwloadBtn}
-              onClick={() => downloadFile("/api/v1/export/test/")}
+              onClick={() => downloadFile("/api/v1/export/test/", "ключ PDF")}
             >
               <SVGIcon /> <span>ключ PDF</span>
             </button>

@@ -25,11 +25,11 @@ export function Aside({ className, ...otherProps }: AsideProps) {
         <Nav
           menu={[
             {
-              href: "/",
+              href: "/thematic-codifier",
               label: "Тематический кодификатор",
             },
             {
-              href: "text",
+              href: "/available-to-generate",
               label: "Генератор задач",
             },
           ]}

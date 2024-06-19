@@ -1,3 +1,4 @@
+"use client";
 //Organisms
 import { Aside } from "@/organisms/Aside";
 
@@ -12,11 +13,21 @@ import { helvetica } from "@/fonts/fonts";
 
 import { AnswerProvider } from "@/context/userAnswer.context";
 
+import { usePathname } from "next/navigation";
+
+const path = {
+  ["/thematic-codifier"]: "Тематический кодификатор",
+  ["/available-to-generate"]: "Генератор задач",
+  ["/generated-answers"]: "Вариант 1",
+};
+
 export function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
   return (
     <html lang="en">
       <body className={helvetica.className}>
@@ -26,7 +37,11 @@ export function RootLayout({
               <Aside className={styles.aside} />
               <div className={styles.main}>
                 <Breadcrumbs
-                  breadcrumbs={[{ label: "Главная " }, { label: "Тематический кодификатор" }]}
+                  breadcrumbs={[
+                    { label: "Главная " },
+                    // @ts-ignore
+                    { label: path[pathname] },
+                  ]}
                 />
                 <div className={styles.content}>{children}</div>
               </div>

@@ -66,6 +66,7 @@ export const Row = ({
                     className={styles.checkbox}
                     value={topic_id}
                     checked={included_topics.includes(topic_id)}
+                    
                     onChange={(e) => {
                       changeTopics(section_id, Number(e.currentTarget.value));
                     }}

@@ -40,6 +40,10 @@ export const InputNumber = forwardRef(function (
     getAmount(value);
   }, [value]);
 
+  useEffect(() => {
+    setValue(Number(valueForm));
+  }, [valueForm]);
+
   return (
     <div className={cn([className, styles.wrapper])} {...otherProps}>
       <input ref={ref} className={styles.input} onChange={onChange} value={value} />
