@@ -26,7 +26,7 @@ export function Aside({ className, ...otherProps }: AsideProps) {
           menu={[
             {
               href: "/thematic-codifier",
-              label: "Тематический кодификатор",
+              label: "Каталог тем",
             },
             {
               href: "/available-to-generate",

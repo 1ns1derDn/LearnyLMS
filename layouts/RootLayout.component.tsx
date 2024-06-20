@@ -16,7 +16,7 @@ import { AnswerProvider } from "@/context/userAnswer.context";
 import { usePathname } from "next/navigation";
 
 const path = {
-  ["/thematic-codifier"]: "Тематический кодификатор",
+  ["/thematic-codifier"]: "Каталог тем",
   ["/available-to-generate"]: "Генератор задач",
   ["/generated-answers"]: "Вариант 1",
 };
