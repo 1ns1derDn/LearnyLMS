@@ -109,12 +109,14 @@ export function AvailableToGenerate({
         </div>
         <Divided />
         <div className={styles.body}>
-          {data.map((row, index) => (
+          {data.map(({ topics, display_name }, index) => (
             <Row
-              key={index}
-              {...row}
+              key={display_name}
+              topics={topics}
               index={index}
-              {...formData[index]}
+              display_name={display_name}
+              amount={formData}
+              task_type={formData[index].task_type}
               changeAmount={changeAmount}
             />
           ))}

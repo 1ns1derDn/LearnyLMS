@@ -3,7 +3,7 @@ import { HTMLAttributes } from "react";
 export interface RowTypes {
   display_name: string;
   changeAmount: (key: string, amount: number) => void;
-  amount: number;
+  amount: IFromAvailableToGenerateData[];
   task_type: string;
   topics: [
     {

@@ -7,13 +7,7 @@ import Image from "next/image";
 import cn from "classnames";
 import { useState } from "react";
 
-export const Row = ({
-  display_name,
-  topics,
-  amount,
-  changeAmount,
-  index,
-}: RowTypes) => {
+export const Row = ({ display_name, topics, amount, changeAmount, index }: RowTypes) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   return (
@@ -42,23 +36,28 @@ export const Row = ({
       <div>
         {visible && (
           <>
-            {topics.map(({ available_for_generation, display_name, key }, index) => (
-              <Typography className={cn(styles.color, styles.subtopic)} variant="text3" key={index}>
-                <div
-                  className={cn(styles.col, styles.pl, {
-                    [styles.disabled]: !available_for_generation,
-                  })}
-                >
-                  <span>{`Подтема ${index + 1}. ${display_name}`}</span>
-                </div>
-                <div className={styles.col} />
-                <Typography className={cn(styles.col, styles.subtopicCount)} variant="text3">
-                  {available_for_generation && (
-                    <InputNumber getAmount={(val) => changeAmount(key, val)} value={amount} />
-                  )}
+            {topics.map(({ available_for_generation, display_name, key }) => {
+              return (
+                <Typography className={cn(styles.color, styles.subtopic)} variant="text3" key={key}>
+                  <div
+                    className={cn(styles.col, styles.pl, {
+                      [styles.disabled]: !available_for_generation,
+                    })}
+                  >
+                    <span>{`Подтема ${index + 1}. ${display_name}`}</span>
+                  </div>
+                  <div className={styles.col} />
+                  <Typography className={cn(styles.col, styles.subtopicCount)} variant="text3">
+                    {available_for_generation && (
+                      <InputNumber
+                        getAmount={(val) => changeAmount(key, val)}
+                        value={amount.filter(({ task_type }) => task_type === key)[0].amount}
+                      />
+                    )}
+                  </Typography>
                 </Typography>
-              </Typography>
-            ))}
+              );
+            })}
           </>
         )}
       </div>
