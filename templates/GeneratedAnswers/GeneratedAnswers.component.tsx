@@ -83,14 +83,14 @@ export function GeneratedAnswers({
           <div>
             <button
               className={styles.donwloadBtn}
-              onClick={() => downloadFile("/api/v1/export/answers/", "Вариант В PDF")}
+              onClick={() => downloadFile("/api/v1/export/test/", "Вариант В PDF")}
             >
               <SVGIcon />
               <span>Вариант В PDF</span>
             </button>
             <button
               className={styles.donwloadBtn}
-              onClick={() => downloadFile("/api/v1/export/test/", "ключ PDF")}
+              onClick={() => downloadFile("/api/v1/export/answers/", "ключ PDF")}
             >
               <SVGIcon /> <span>ключ PDF</span>
             </button>
