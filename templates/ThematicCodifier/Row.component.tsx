@@ -32,7 +32,11 @@ export const Row = ({
             alt="arrow"
           />
           <div>
-            <Typography className={cn(styles.color, styles.topic)} variant="text3">
+            <Typography
+              onClick={() => setVisible((prev) => !prev)}
+              className={cn(styles.color, styles.topic)}
+              variant="text3"
+            >
               {`Тема ${index + 1}. ${section_name}`}
             </Typography>
           </div>
@@ -66,7 +70,6 @@ export const Row = ({
                     className={styles.checkbox}
                     value={topic_id}
                     checked={included_topics.includes(topic_id)}
-                    
                     onChange={(e) => {
                       changeTopics(section_id, Number(e.currentTarget.value));
                     }}

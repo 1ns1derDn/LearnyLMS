@@ -43,6 +43,8 @@
 
 .body {
   padding: 20px 16px 18px 32px;
+  max-height: 700px;
+  overflow: auto;
 }
 
 .wrapper {
@@ -70,6 +72,7 @@
 
 .topic {
   margin-bottom: 13px;
+  cursor: pointer;
 }
 
 .subtopic {

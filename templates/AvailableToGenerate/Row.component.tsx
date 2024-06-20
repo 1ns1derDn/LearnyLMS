@@ -23,7 +23,11 @@ export const Row = ({ display_name, topics, amount, changeAmount, index }: RowTy
             alt="arrow"
           />
           <div>
-            <Typography className={cn(styles.color, styles.topic)} variant="text3">
+            <Typography
+              onClick={() => setVisible((prev) => !prev)}
+              className={cn(styles.color, styles.topic)}
+              variant="text3"
+            >
               {`Тема ${index + 1}. ${display_name}`}
             </Typography>
           </div>

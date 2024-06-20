@@ -71,6 +71,7 @@
 }
 
 .topic {
+  cursor: pointer;
   margin-bottom: 13px;
 }
 
